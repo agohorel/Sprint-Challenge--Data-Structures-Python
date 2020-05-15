@@ -11,7 +11,7 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-names_2_bst = BSTNode(names_2[0])
+names_2_bst = BSTNode("")
 
 for name in names_2:
     names_2_bst.insert(name)
@@ -41,9 +41,11 @@ print(f"runtime: {end_time - start_time} seconds")
 start_time2 = time.time()
 
 dupes = []
+names2_set = set(names_2)
 
 for n1 in names_1:
-    if n1 in names_2:
+    # if n1 in names_2:
+    if n1 in names2_set:
         dupes.append(n1)
 
 end_time2 = time.time()
